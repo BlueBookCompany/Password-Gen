@@ -1,0 +1,106 @@
+// Rainbow six life.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+	int x;
+	char y;
+	int A;
+	int ARC;
+	int DC;
+	int DCAM;
+	int CAM;
+	int RA;
+	int RSP;
+	int RSPA;
+	int MJTD;
+	int MJ;
+	int MSP;
+	int MSPA;
+	int LSP;
+	int DOH;
+	CAM = 3;
+	A = 2;
+	DC = 2;
+	cout << "Life of Rainbow Six:Seige" << endl;
+	cout << "Choose you side (Defender or Attacker)" << endl;
+	cout << "1=Defender 2=Attacker" << endl;
+	std::cin >> x;
+	if (x == 1)
+		y = 'D';
+	if (x == 2)
+		y = 'A';
+	cout << "Choose your operator\n" << "Rook = 1, Mute = 2" << endl;
+	cin >> DC;
+	if (DC == 1) {
+		cout << "You have chose Rook" << endl;
+		cout << "Get Rook armor?" << "Yes = 1, No = 2\n";
+		cin >> RA;
+		if (RA == 1)
+			DOH = 140;
+		if (RA == 2)
+			DOH = 100;
+		cout << "Operator Heath =" << DOH << endl;
+		cout << "Do you wish to spawn peek " << "Yes = 1, No = 2 \n";
+		cin >> RSP;
+		if (RSP == 1)
+			RSPA = rand() % 9 - 1;
+		cout << "Your percentage of wining a spawn peek is =" << RSPA << endl;
+		if (RSPA >= 4) {
+			ARC = A - 1;
+			cout << "You win a spawn peek you killed a attacker\n" << "There is only " << ARC << " attacker left" << endl;
+		}
+		else {
+			DC = 1;
+			cout << "You lost a spawn peek you have been killed by attacker \n" << "There is only" << DC << "defender left" << endl;
+			cout << "Wish to continue?" << "Yes=1, No=2" << endl;
+			cin >> LSP;
+			if (LSP == 1)
+				cout << "Okay" << "Press 5 to access camera" << endl;
+			else {
+				while (LSP != 1)
+					cout << "Wish to continue?" << "Yes=1, No=2";
+				cin >> DCAM;
+			}
+			if (DCAM == 5)
+				cout << "There is" << CAM << "camera left" << endl;
+
+			else {
+				while (DCAM != 5)
+					cout << "Press 5 to access to camera" << endl;
+			}
+		}
+
+	}
+
+	if (DC == 2)
+		cout << "You have chose Mute" << endl;
+		cout << "Do you wish to place Mute Jammer? " << "Yes = 1, No = 2" << endl;
+	cin >> MJ;
+	if (MJ == 1) {
+		cout << "All drone will be Jammed in this floor" << endl;
+		MJTD = 1;
+	}
+	else {
+		cout << "No drones will be Jammed" << endl;
+		MJTD = 0;
+	}
+	cout << "Do you want to spawn peek?(1=Yes, 2,=No)" << endl;
+	cin >> MSP;
+	if (MSP == 1) {
+		MSPA = rand() % 1 + 6;
+		cout << "Your rate of winning a spawn peek is: " << MSPA << endl;
+		if (MSPA <= 3) {
+			ARC = A - 1;
+			cout << "You have won a spawn peek" << "there is only " << ARC << "Attacker left" << endl;
+		}
+		else
+			cout << "You have lost a spawn peek";
+	}
+}
